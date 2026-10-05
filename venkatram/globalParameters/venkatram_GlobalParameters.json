@@ -1,0 +1,14 @@
+{
+	"global_para_1": {
+		"type": "int",
+		"value": 3
+	},
+	"practice_para": {
+		"type": "int",
+		"value": 4
+	},
+	"duplicate_para": {
+		"type": "int",
+		"value": 10
+	}
+}
