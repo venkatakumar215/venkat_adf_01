@@ -1,0 +1,25 @@
+{
+	"name": "event_trigger_01",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "21_2_Validation and delete activity and event trigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/conainer1/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/019ddecb-3e5e-42e2-b787-a4a9d30bc83b/resourceGroups/batch21/providers/Microsoft.Storage/storageAccounts/venkatgen2",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}

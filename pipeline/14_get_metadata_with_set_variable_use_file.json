@@ -1,0 +1,148 @@
+{
+	"name": "14_get_metadata_with_set_variable_use_file",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "getmetadata_dataset",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"columnCount",
+						"structure"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "return_count",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "count",
+					"value": {
+						"value": "@activity('Get Metadata1').output.columnCount",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "get_the_total_structure",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "arr",
+					"value": {
+						"value": "@activity('Get Metadata1').output.structure",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "get_the_name_direct_output",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "str",
+					"value": {
+						"value": "@activity('Get Metadata1').output.structure[1].name",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "get_the_name_from_structure",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "get_the_total_structure",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "str",
+					"value": {
+						"value": "@variables('arr')[1].name",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"str": {
+				"type": "String"
+			},
+			"count": {
+				"type": "Integer"
+			},
+			"arr": {
+				"type": "Array"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-09-29T04:32:47Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

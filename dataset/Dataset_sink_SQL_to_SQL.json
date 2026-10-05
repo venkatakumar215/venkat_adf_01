@@ -1,0 +1,17 @@
+{
+	"name": "Dataset_sink_SQL_to_SQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_to_SQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dvk",
+			"table": "employees"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

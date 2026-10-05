@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "Call_One_ADF_to_Another",
 	"properties": {
 		"activities": [
 			{
@@ -13,7 +13,7 @@
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2026-10-05T00:28:07Z"
+		"lastPublishTime": "2026-10-05T00:20:15Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

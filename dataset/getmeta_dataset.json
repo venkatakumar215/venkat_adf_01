@@ -1,0 +1,37 @@
+{
+	"name": "getmeta_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Linked_service_for_getmetadea",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "mba.csv",
+				"fileSystem": "input01"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "datasrno",
+				"type": "String"
+			},
+			{
+				"name": "workex",
+				"type": "String"
+			},
+			{
+				"name": "gmat",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

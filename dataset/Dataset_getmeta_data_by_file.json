@@ -1,0 +1,38 @@
+{
+	"name": "Dataset_getmeta_data_by_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Getmetadata_linked_services",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "sales_2025_01.csv",
+				"folderPath": "container1_in_1",
+				"fileSystem": "conainer1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "datasrno",
+				"type": "String"
+			},
+			{
+				"name": "workex",
+				"type": "String"
+			},
+			{
+				"name": "gmat",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

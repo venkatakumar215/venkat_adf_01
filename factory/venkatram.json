@@ -1,0 +1,29 @@
+{
+	"name": "venkatram",
+	"properties": {
+		"globalParameters": {
+			"global_para_1": {
+				"type": "int",
+				"value": 3
+			},
+			"practice_para": {
+				"type": "int",
+				"value": 4
+			},
+			"duplicate_para": {
+				"type": "int",
+				"value": 10
+			}
+		},
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "southcentralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2a1f85ca-f597-4f65-93d1-eb83577594a3",
+		"tenantId": "36e21210-2c27-4967-89a0-2ac49479fdaa"
+	}
+}

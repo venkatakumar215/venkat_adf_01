@@ -1,0 +1,13 @@
+{
+	"name": "Lookup_with_stored_procedure",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Stored_procedure",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

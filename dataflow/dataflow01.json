@@ -1,0 +1,45 @@
+{
+	"name": "dataflow01",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Dataset_Dataflows_source",
+						"type": "DatasetReference"
+					},
+					"name": "readdatasource"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_Dataflows_sink",
+						"type": "DatasetReference"
+					},
+					"name": "readdatasink"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Date0 as date,",
+				"          Date1 as date,",
+				"          Close as double,",
+				"          gain as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> readdatasource",
+				"readdatasource sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> readdatasink"
+			]
+		}
+	}
+}

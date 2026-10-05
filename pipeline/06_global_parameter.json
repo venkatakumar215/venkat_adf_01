@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "06_global_parameter",
 	"properties": {
 		"activities": [
 			{
@@ -8,12 +8,15 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
-					"waitTimeInSeconds": 1
+					"waitTimeInSeconds": {
+						"value": "@pipeline().globalParameters.global_para_1",
+						"type": "Expression"
+					}
 				}
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2026-10-05T00:28:07Z"
+		"lastPublishTime": "2026-09-22T02:47:03Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

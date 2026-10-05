@@ -1,0 +1,48 @@
+{
+	"name": "17_2_Parameterized_Stored_Procedure",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[strprocedure].[insert_product]",
+					"storedProcedureParameters": {
+						"p_category_id": {
+							"value": "143",
+							"type": "Int32"
+						},
+						"p_price": {
+							"value": "25000",
+							"type": "Decimal"
+						},
+						"p_product_name": {
+							"value": "laptop",
+							"type": "String"
+						},
+						"product_id": {
+							"value": "123",
+							"type": "Int32"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_Stored_procedure",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-09-29T10:38:53Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

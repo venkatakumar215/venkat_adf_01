@@ -1,0 +1,54 @@
+{
+	"name": "19_2_lookup_with_stored_procedure_dml",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderStoredProcedureName": "[strprocedure].[insert_product]",
+						"storedProcedureParameters": {
+							"p_category_id": {
+								"type": "Int32",
+								"value": "123"
+							},
+							"p_price": {
+								"type": "Decimal",
+								"value": "17500"
+							},
+							"p_product_name": {
+								"type": "String",
+								"value": "phone"
+							},
+							"product_id": {
+								"type": "Int32",
+								"value": "142"
+							}
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "Lookup_with_stored_procedure",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-09-29T10:57:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

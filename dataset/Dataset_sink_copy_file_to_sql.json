@@ -1,0 +1,17 @@
+{
+	"name": "Dataset_sink_copy_file_to_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Copy_file_to_SQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "f2s",
+			"table": "emp_today"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

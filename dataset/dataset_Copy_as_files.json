@@ -1,0 +1,42 @@
+{
+	"name": "dataset_Copy_as_files",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "copy all files as folders_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "GLAXO.csv",
+				"folderPath": "input_01",
+				"fileSystem": "copyactivity01"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Date0",
+				"type": "String"
+			},
+			{
+				"name": "Date1",
+				"type": "String"
+			},
+			{
+				"name": "Close",
+				"type": "String"
+			},
+			{
+				"name": "gain",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
